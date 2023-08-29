@@ -3,6 +3,7 @@ package FileReader
 import (
 	"bufio"
 	"encoding/csv"
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -33,7 +34,7 @@ func GetNewLineCharacterLength(filePath, separator string) (int) {
 	newLineCharacterLength := (int(offset) - size)
 	return newLineCharacterLength
 }
-
+// Function to get offset for each row/record, offset could act a an unique identifier for each row/record
 func GetOffsets(filePath, separator string) []int64 {
 	file, err := os.Open(filePath)
 	offsets := []int64{}
@@ -57,6 +58,7 @@ func GetOffsets(filePath, separator string) []int64 {
 		row := strings.Join(columnValues, separator)
 		offsets = append(offsets, offset)
 		offset += int64(len(row)) + newLineCharacterLength
+		fmt.Println(offset)
 	}
 	return offsets
 }

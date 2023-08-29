@@ -1,4 +1,4 @@
-The function getNewLineCharacterLength in Go takes two parameters: filePath and separator. It returns an integer value that represents the length of the newline character in the file located at filePath.
+The function GetNewLineCharacterLength in Go takes two parameters: filePath and separator. It returns an integer value that represents the length of the newline character in the file located at filePath.
 
 The function first opens the file at filePath using the os.Open function. If there is an error opening the file, it logs the error and returns 0. Otherwise, it creates a new CSV reader using the csv.NewReader function and sets its delimiter to the first rune of separator.
 
